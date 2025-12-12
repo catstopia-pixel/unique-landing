@@ -594,10 +594,11 @@ section.is-visible {
 
   /* 9) 네브바 CTA: 작고 단정하게 */
   .nav-cta {
-    padding: 0.4rem 0.8rem;
-    font-size: 0.8rem;
-    border-radius: 3px;
-    margin-left: 8px;
+    padding: 0.32rem 0.6rem; /*높이, 폭*/
+    font-size: 0.75rem; /*글자 크기 축소*/
+    line-height: 1.2;    /*버튼 높이 안정화*/
+    border-radius: 3px;    /*각진 느낌 최소*/
+    margin-left: 6px;   /*로고 메뉴와의 간격*/
   }
 
   /* 10) How it works: 모바일에서 라인 숨김은 유지, 단계는 안정적으로 */
