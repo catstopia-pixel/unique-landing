@@ -493,28 +493,116 @@ section.is-visible {
         display: none;
     }
 }
-@media (max-width: 600px) {
-     /* 하단 CTA 영역 가운데 정렬 보장 */
-    #final-cta .container {
-        text-align: center;
-     }
-    .grid-3, .grid-2 {
-        grid-template-columns: 1fr;
-    }
-    .cta-button, .cta-secondary {
-        width: 100%;
-    margin: 5px 0 !important;
-    }
 
-    /* 하단 CTA만 예외 */
-  #final-cta .cta-button {
-    width: auto;
-    display: inline-block;
-    margin: 0 auto !important;
-    max-width: 320px;
+@media (max-width: 600px) {
+
+  /* 0) 화면 리듬: 모바일에서는 spacing을 강제로 줄여 ‘과한 공백’ 제거 */
+  :root {
+    --spacing-xl: 72px;
+    --spacing-l: 48px;
+    --spacing-m: 24px;
+    --spacing-s: 14px;
   }
-  
-    #hero-headline {
-        font-size: 2rem;
-    }
+
+  /* 1) 컨테이너: 좌우 여백을 통일하고 가로삐짐 방지 */
+  .container {
+    max-width: 100%;
+    padding: 0 16px;
+    box-sizing: border-box;
+  }
+  html, body { overflow-x: hidden; }
+
+  /* 2) 섹션: 위아래 리듬을 통일(너무 벌어지는 느낌 제거) */
+  section {
+    padding: var(--spacing-l) 0;
+  }
+
+  /* 3) 헤드라인/문단: 모바일 가독성(줄길이/정렬) 통일 */
+  h2 {
+    font-size: 2rem;
+    margin-bottom: var(--spacing-m);
+    text-align: center;
+  }
+
+  #hero-headline {
+    font-size: 2rem;
+    line-height: 1.15;
+    text-align: center;
+    margin-bottom: var(--spacing-s);
+  }
+
+  #hero-subcopy {
+    font-size: 1rem;
+    margin: 0 auto var(--spacing-m);
+    max-width: 34ch;          /* 문장 폭 제한(가독성↑) */
+  }
+
+  /* 4) 히어로 레이아웃: 한 기준(센터)으로 통일 */
+  .hero-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--spacing-m);
+  }
+  .hero-text, .hero-visual {
+    max-width: 100%;
+    padding-right: 0;
+  }
+
+  /* 5) 버튼: 전부 같은 규격(폭/정렬/간격)으로 통일 */
+  .cta-button,
+  .cta-secondary {
+    width: 100%;
+    max-width: 360px;          /* 폰에서 과하게 길지 않게 */
+    display: inline-block;
+    padding: 0.95rem 1.2rem;
+    margin: 8px auto !important;
+    box-sizing: border-box;
+  }
+
+  .hero-cta-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: var(--spacing-m);
+  }
+  .cta-secondary {
+    margin-left: 0;            /* 데스크탑 잔여 영향 제거 */
+  }
+
+  /* 6) 카드/그리드: 1열로 정리 + 카드 간 간격 균일 */
+  .grid-3, .grid-2 {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-m);
+  }
+  .card {
+    padding: var(--spacing-m);
+  }
+
+  /* 7) 불릿: 줄바꿈/정렬 안정화 */
+  .hero-bullets {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  /* 8) 타이핑 박스: 너무 넓게 퍼지지 않게 */
+  .typing-container {
+    max-width: 360px;
+    margin: 0 auto;
+  }
+
+  /* 9) 네브바 CTA: 작고 단정하게 */
+  .nav-cta {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+    border-radius: 3px;
+    margin-left: 8px;
+  }
+
+  /* 10) How it works: 모바일에서 라인 숨김은 유지, 단계는 안정적으로 */
+  .flow-step {
+    max-width: 100%;
+    padding: 0;
+  }
 }
