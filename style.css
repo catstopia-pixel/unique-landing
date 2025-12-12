@@ -441,6 +441,11 @@ section.is-visible {
     h2 {
         font-size: 2.2rem;
     }
+ /* 네브바 컨테이너 정렬 */
+    #navbar > .container {
+    justify-content: space-between;
+  }
+
     #hero-headline {
         font-size: 2.5rem;
     }
@@ -476,21 +481,39 @@ section.is-visible {
     .flow-line, .svg-data-flow {
         display: none;
     }
+
+      /* 전화 상담 버튼은 보이게 */
     .nav-cta {
-        display: none;
+        display: inline-block;
+        padding: 0.45rem 0.9rem;
+        font-size: 0.85rem;
+        margin-left: auto; /* 오른쪽 정렬 */
     }
     #navbar nav {
-        margin: 0 auto;
+        display: none;
     }
 }
 @media (max-width: 600px) {
+     /* 하단 CTA 영역 가운데 정렬 보장 */
+    #final-cta .container {
+        text-align: center;
+     }
     .grid-3, .grid-2 {
         grid-template-columns: 1fr;
     }
     .cta-button, .cta-secondary {
         width: 100%;
-        margin: 5px 0 !important;
+    margin: 5px 0 !important;
     }
+
+    /* 하단 CTA만 예외 */
+  #final-cta .cta-button {
+    width: auto;
+    display: inline-block;
+    margin: 0 auto !important;
+    max-width: 320px;
+  }
+  
     #hero-headline {
         font-size: 2rem;
     }
