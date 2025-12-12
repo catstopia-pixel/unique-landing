@@ -594,7 +594,10 @@ section.is-visible {
 
   /* 9) 네브바 CTA: 작고 단정하게 */
   .nav-cta {
-    padding: 0.32rem 0.6rem; /*높이, 폭*/
+    padding-top: 0.5rem;      /* 기존 값 복구 (세로 유지) */
+    padding-bottom: 0.5rem;   /* 기존 값 복구 (세로 유지) */
+    padding-left: 0.6rem;     /* 가로만 축소 */
+    padding-right: 0.6rem;    /* 가로만 축소 */
     font-size: 0.75rem; /*글자 크기 축소*/
     line-height: 1.2;    /*버튼 높이 안정화*/
     border-radius: 3px;    /*각진 느낌 최소*/
